@@ -1,12 +1,13 @@
 require "spec_helper"
 
-RSpec.describe Gear do
+RSpec.describe Gears::Gear do
   let(:chainring) { 52 }
   let(:cog)       { 11 }
   let(:rim)       { 26 }
   let(:tire)      { 1.5 }
+  let(:wheel)     { Gears::Wheel.new(rim, tire) }
 
-  subject { described_class.new(chainring, cog, rim, tire) }
+  subject { described_class.new(chainring, cog, wheel) }
 
   describe '#ratio' do
     it 'returns the ratio between chainring and cog' do
